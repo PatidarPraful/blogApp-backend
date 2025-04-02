@@ -60,7 +60,6 @@ app.listen(process.env.PORT,()=>{
     console.log("app is running on port "+process.env.PORT)
 })
 
-app.get("/", ()=>{
-    console.log("backend is running");
-    
+app.get("/",(req, res) => {
+    res.send("Backend is running!");   
 })
