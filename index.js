@@ -30,13 +30,16 @@ const connectDB=async()=>{
 dotenv.config()
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
-// app.use(cors({origin:"http://localhost:5173",credentials:true}))
-app.use(cors({
-    origin: "*",  // Allows all origins
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-}));
+app.use(cors({ origin: [
+    "http://localhost:5173", // Local frontend (for development)
+    "https://vercel.com/prafull-patidars-projects/blog-app-frontend-s54f" // Vercel frontend
+],credentials:true}))
+// app.use(cors({
+//     origin: "*",  // Allows all origins
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"]
+// }));
 
 app.use(cookieParser())
 app.use("/api/auth",authRoute)
