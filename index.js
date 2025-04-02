@@ -30,25 +30,11 @@ const connectDB=async()=>{
 dotenv.config()
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
-// app.use(cors({ origin: 
-//     ["https://blog-app-frontend-s54f.vercel.app",
-//      "https://blog-app-frontend-s54f-git-main-prafull-patidars-projects.vercel.app",
-//      "https://blog-app-frontend-s54f-84ljqic2e-prafull-patidars-projects.vercel.app"
-//      ]
-// ,credentials:true}))
 
-const corsOptions = {
-    origin: [
-        "https://blog-app-frontend-s54f.vercel.app",
-        "https://blog-app-frontend-s54f-git-main-prafull-patidars-projects.vercel.app",
-        "https://blog-app-frontend-s54f-84ljqic2e-prafull-patidars-projects.vercel.app"
-    ],
-    credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-};
-
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: "https://blog-app-frontend-s54f.vercel.app", // Allow your frontend domain
+    credentials: true, // Allow cookies to be sent
+}));
 
 
 app.use(cookieParser())
