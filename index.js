@@ -33,7 +33,7 @@ app.use("/images",express.static(path.join(__dirname,"/images")))
 app.use(cors({ origin: 
     ["https://blog-app-frontend-s54f.vercel.app",
      "https://blog-app-frontend-s54f-git-main-prafull-patidars-projects.vercel.app",
-     "https://blog-app-frontend-s54f-84ljqic2e-prafull-patidars-projects.vercel.app
+     "https://blog-app-frontend-s54f-84ljqic2e-prafull-patidars-projects.vercel.app"
      ]
 ,credentials:true}))
 
