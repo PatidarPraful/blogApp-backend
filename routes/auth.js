@@ -43,7 +43,9 @@ router.post("/login",async (req,res)=>{
             httpOnly: true,
             secure: true,  // Ensures it's only sent over HTTPS
             sameSite: "none", // Allows cross-origin requests
-        });
+        }).status(200).json(info);
+
+        console.log("Login successful for:", user.email);
 
     }
     catch(err){
